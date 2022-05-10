@@ -5,7 +5,7 @@ export default function Form() {
     <div>
         <form>
             <textarea />
-            <button> submit </button>
+            <button className='btn-submit'> submit </button>
         </form>
     </div>
   )
