@@ -27,9 +27,9 @@ textarea{
 .btn-submit{
   align-self:flex-end;
   padding: .5em 1.5em;
-  background: blue;
+  background-color: #4072DD;
   font-size:.65rem;
-  color: whitesmoke;
+  color: white;
   text-transform: capitalize;
   border-radius: 2px;
   border: none;

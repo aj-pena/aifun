@@ -13,25 +13,30 @@ const data = {
 }
 
 function App() {
+  const [ response, setResponse ] = React.useState( '' )
 
   React.useEffect( () => {
-    // fetch(`https://api.openai.com/v1/engines/${engine_id}/completions`, {
-    //   method: "POST",
-    //   headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: `Bearer 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`
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    // .then( res => res.json() )
-    // .then( answer => {
-    //   console.log(answer.choices)
-    // })
+    fetch(`https://api.openai.com/v1/engines/${engine_id}/completions`, {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.OPENAI_API_KEY} `
+      },
+      body: JSON.stringify(data),
+    })
+    .then( res => res.json() )
+    .then( answer => {
+      console.log(answer.choices)
+      setResponse( answer.choices[0].text)
+    })
   }, [])
+  function handleChange(){
+    console.log('the text area contents changed')
+  }
   return (
     <div className="App">
       <h1> Fun with AI </h1>
-      <Form/>
+      <Form value={response} handler={handleChange}/>
       <Responses/>
     </div>
   );
