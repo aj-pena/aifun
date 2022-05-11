@@ -15,7 +15,7 @@ function App() {
     )
     // state to handle an array of objects that will be used to display the responses in a list
     //  in the <Responses/> component
-    const [ cardsArray, setCardsArray ] = React.useState( [])
+    const [ cardsArray, setCardsArray ] = React.useState( localStorage.getItem("cards") ? localStorage.getItem('cards') : [])
    
   // variable and request object to be used in the FETCH call
   const engine_id = "text-curie-001"
@@ -79,6 +79,32 @@ function App() {
            ]
         
     })
+      // retrieves saved data from local storage and parses it to convert to JavaScript Array
+      let savedCards = JSON.parse( localStorage.getItem('cards') ) 
+      // TODO: erase console.log
+      console.log( savedCards )
+      // Checks if there is saved data
+      if( savedCards){
+          // adds new card to the beginning of array 
+        savedCards.unshift( {
+          prompt:cardData.prompt,
+          id: newResponseId,
+          response: newResponse,
+        }
+        )
+        // saves updated array to local storage
+        localStorage.setItem( 'cards', JSON.stringify( savedCards ) )
+
+      }else {
+        // If there is no saved data, creates array with first entry
+        savedCards = [ {
+          prompt:cardData.prompt,
+          id: newResponseId,
+          response: newResponse,
+        }]
+      }
+      // saves new array to local storage
+      localStorage.setItem( 'cards', JSON.stringify( savedCards ) )
 
     }) // END OF FETCH().THEN.()THEN()  
 

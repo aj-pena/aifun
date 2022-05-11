@@ -3,7 +3,7 @@ import React from 'react'
 export default function Form({ value, changer, submitter }) {
   return (
         <form onSubmit={submitter}>
-          <label className='prompt-label' for="prompt"> Enter prompt </label>
+          <label className='prompt-label' htmlFor="prompt"> Enter prompt </label>
             <textarea            
             value={value}
             onChange={changer}
