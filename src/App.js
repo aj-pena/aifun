@@ -4,7 +4,9 @@ import './App.css';
 import React from 'react';
 
 function App() {
-  
+  // retrieves saved data from local storage and parses it to convert to JavaScript Array
+  let savedCards = JSON.parse( localStorage.getItem('cards') ) 
+      
   // state to remember input from the user and response from API
   const [ cardData, setCardData ] = React.useState(
       {
@@ -15,7 +17,7 @@ function App() {
     )
     // state to handle an array of objects that will be used to display the responses in a list
     //  in the <Responses/> component
-    const [ cardsArray, setCardsArray ] = React.useState( localStorage.getItem("cards") ? localStorage.getItem('cards') : [])
+    const [ cardsArray, setCardsArray ] = React.useState( savedCards || [] )
    
   // variable and request object to be used in the FETCH call
   const engine_id = "text-curie-001"
@@ -79,20 +81,17 @@ function App() {
            ]
         
     })
-      // retrieves saved data from local storage and parses it to convert to JavaScript Array
-      let savedCards = JSON.parse( localStorage.getItem('cards') ) 
-      // TODO: erase console.log
-      console.log( savedCards )
-      // Checks if there is saved data
+      
+      // Checks if there is saved data in localStorage
       if( savedCards){
-          // adds new card to the beginning of array 
+          // If there is saved data, it adds new card to the beginning of array 
         savedCards.unshift( {
           prompt:cardData.prompt,
           id: newResponseId,
           response: newResponse,
         }
         )
-        // saves updated array to local storage
+        // And then saves updated array to local storage
         localStorage.setItem( 'cards', JSON.stringify( savedCards ) )
 
       }else {
@@ -103,7 +102,7 @@ function App() {
           response: newResponse,
         }]
       }
-      // saves new array to local storage
+      // And then saves new array to local storage
       localStorage.setItem( 'cards', JSON.stringify( savedCards ) )
 
     }) // END OF FETCH().THEN.()THEN()  
