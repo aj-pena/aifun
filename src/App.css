@@ -2,12 +2,22 @@
 html,
 body {
   font-size: 1rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: Ubuntu, 'Roboto', sans-serif;
 }
 *{
   box-sizing: border-box;
+  font-style:italic;
 }
 /* typography */
+h1,
+textarea,
+.prompt-label,
+.response-card{
+  color: rgba(255,255,255,.9);
+}
+h1{
+  font-size: 3rem;
+}
 .prompt-label{
   font-weight: 700;
 }
@@ -24,7 +34,17 @@ body {
 .btn-submit{
   text-transform: capitalize;
 }
+.credits{
+  font-size: .5rem;
+  color: rgba(255,255,255,.7);
+}
+
 /* html elements styling */
+h1{
+
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
+}
 form{
   min-width: 350px;
   max-width: 40%;
@@ -33,19 +53,26 @@ form{
   align-items: center;
 }
 textarea{
+  padding: .5em 1em;
   width:100%;
   min-height: 150px;
   border-radius: 5px;
-  margin-bottom: .15em;  
+  margin-bottom: 5px;
+  background: none;
+  border: rgba(255,255,255,.5) solid 1px;  
 }
 /* classes styling */
 .App {
   display:flex;
   flex-direction: column;
   align-items:center;
+  background-image: url('../public/images/mirrored.jpg');
+  background-size: cover;
+  min-height: 100vh;
 }
 .prompt-label{
   align-self:flex-start;
+  margin-bottom: 5px;
 }
 .btn-submit{
   align-self:flex-end;
@@ -58,11 +85,12 @@ textarea{
 }
 
 .response-card{
-  margin-top: 1em;
+  margin-top: 1.5em;
+  border-radius: 5px;
   min-width: 350px;
   max-width: 40%;
-  padding:.5em;
-  background-color: lightgrey;
+  padding:1em;
+  background-color: rgba(255,255,255,.4);
   display:grid;
   grid-template-areas: 
         "prompt-heading prompt-text"
@@ -81,4 +109,9 @@ textarea{
 }
 .response-card-response-paragraph{
   grid-area: response-text;
+}
+.credits{
+  align-self: flex-end;
+  margin-right: 3em;
+  margin-top: 10em;
 }

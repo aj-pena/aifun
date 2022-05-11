@@ -111,13 +111,14 @@ function App() {
 
   return (
     <div className="App">
-      <h1> Fun with AI </h1>
+      <h1 className='title'> Fun with AI </h1>
       {/* Form component receives the prompt to update display and two functions, one to handle
       changes to textarea and one to handle the form submission */}
       <Form value={cardData.prompt} changer={handleChange} submitter={handleSubmit} />
       {/* Responses component receives the cards array, which is a state, and will be used to map
       and display the cards with the responses, from newest to oldest */}
       <Responses data={cardsArray} />
+      <p className='credits'> Image by daniel leone @ unsplash </p>
     </div>
   );
 }
