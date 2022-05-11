@@ -54,10 +54,7 @@ function App() {
       body: JSON.stringify(requestData),
     })
     .then( res => res.json() )
-    .then( answer => {
-      // TODO: erase console.log
-      
-      console.log(answer)
+    .then( answer => {      
       // extracting relevant info from response (answer)
       const newResponse = answer.choices[0].text
       const newResponseId = answer.id
