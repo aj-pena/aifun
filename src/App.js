@@ -2,10 +2,9 @@ import Form from './components/Form'
 import Responses from './components/Responses'
 import './App.css';
 import React from 'react';
-// 'Write a poem about a dog wearing skis'
+
 function App() {
-  // TODO: erase console.log
-  console.log('App mounted')
+  
   // state to remember input from the user and response from API
   const [ cardData, setCardData ] = React.useState(
       {
@@ -14,16 +13,11 @@ function App() {
         response:"",
       }  
     )
-    // TODO: erase console.log
-    // console.log(cardData)
-
-    // state to handle the array of cards that is created from the data passed by App
+    // state to handle an array of objects that will be used to display the responses in a list
+    //  in the <Responses/> component
     const [ cardsArray, setCardsArray ] = React.useState( [])
-      // TODO: erase console.log
-      console.log('cardsArray:')
-      console.log(cardsArray)
-  
-  // variables to be used in the FETCH call
+   
+  // variable and request object to be used in the FETCH call
   const engine_id = "text-curie-001"
   const requestData = {
       prompt: `${cardData.prompt}`,
@@ -32,6 +26,18 @@ function App() {
       top_p: 1.0,
       frequency_penalty: 0.0,
       presence_penalty: 0.0,
+  } 
+
+  // function that handles changes to the textarea and saves the changes in state cardData
+  function handleChange(event){
+    const { name, value } = event.target
+    
+    setCardData( prevCardData => {
+      return{
+        ...prevCardData,
+        [name]: value
+      }
+    })
   }
 
   // function to handle submit and make FETCH request to the openAI API
@@ -49,9 +55,7 @@ function App() {
     })
     .then( res => res.json() )
     .then( answer => {
-       // TODO: erase console.log
-      console.log(answer)
-
+  
       // extracting relevant info from response (answer)
       const newResponse = answer.choices[0].text
       const newResponseId = answer.id
@@ -64,10 +68,7 @@ function App() {
           response: newResponse,
         }
       })
-      // TODO: erase console.log
-      console.log('SetCardData done')
-
-      // using new cardData state to update the cardsArray State
+      // using extracted info to update the cardsArray State while preserving previous info
       setCardsArray ( prevCardsArray => {
         return [
            { 
@@ -80,35 +81,18 @@ function App() {
         
     })
 
-    // TODO: erase console.log
-    console.log(cardsArray)
-    console.log('SetCardsArray done')
-
-
-    }) // END OF FETCH().THEN.()THEN()     
-    
-    
-     // TODO: erase console.log
-    // console.log('I fire once')
+    }) // END OF FETCH().THEN.()THEN()  
 
   }
 
-
-  // handles changes to the form input
-  function handleChange(event){
-    const { name, value } = event.target
-    
-    setCardData( prevCardData => {
-      return{
-        ...prevCardData,
-        [name]: value
-      }
-    })
-  }
   return (
     <div className="App">
       <h1> Fun with AI </h1>
+      {/* Form component receives the prompt to update display and two functions, one to handle
+      changes to textarea and one to handle the form submission */}
       <Form value={cardData.prompt} changer={handleChange} submitter={handleSubmit} />
+      {/* Responses component receives the cards array, which is a state, and will be used to map
+      and display the cards with the responses, from newest to oldest */}
       <Responses data={cardsArray} />
     </div>
   );

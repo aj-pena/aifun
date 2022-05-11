@@ -2,16 +2,15 @@ import React from 'react'
 
 export default function Form({ value, changer, submitter }) {
   return (
-    <div>
         <form onSubmit={submitter}>
-            <textarea 
-            placeholder='write your prompt here'
+          <label className='prompt-label' for="prompt"> Enter prompt </label>
+            <textarea            
             value={value}
             onChange={changer}
             name="prompt"
+            id="prompt"
             />
             <button className='btn-submit'> submit </button>
-        </form>
-    </div>
+        </form>    
   )
 }

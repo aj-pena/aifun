@@ -8,7 +8,11 @@ body {
   box-sizing: border-box;
 }
 /* typography */
-.response-card{
+.prompt-label{
+  font-weight: 700;
+}
+.response-card,
+.prompt-label{
   font-size: .8rem;
 }
 .response-card-prompt-paragraph,
@@ -39,6 +43,9 @@ textarea{
   display:flex;
   flex-direction: column;
   align-items:center;
+}
+.prompt-label{
+  align-self:flex-start;
 }
 .btn-submit{
   align-self:flex-end;
