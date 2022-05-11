@@ -111,7 +111,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className='title'> Fun with AI </h1>
+      <h1> Fun with AI </h1>
+      <p className='author'>by Andrés Peña</p>
       {/* Form component receives the prompt to update display and two functions, one to handle
       changes to textarea and one to handle the form submission */}
       <Form value={cardData.prompt} changer={handleChange} submitter={handleSubmit} />
