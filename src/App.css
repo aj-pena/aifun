@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+/* General styling */
 html,
 body {
   font-size: 1rem;
@@ -9,14 +7,26 @@ body {
 *{
   box-sizing: border-box;
 }
+/* typography */
+.response-card{
+  font-size: .8rem;
+}
+.response-card-prompt-paragraph,
+.response-card-response-paragraph{
+  text-align: justified;
+}
+.response-card-prompt-heading,
+.response-card-response-heading,
+.btn-submit{
+  text-transform: capitalize;
+}
+/* html elements styling */
 form{
   min-width: 350px;
   max-width: 40%;
   display: flex;
   flex-direction:column;
   align-items: center;
-  border: solid red;
-  margin: 0 auto;
 }
 textarea{
   width:100%;
@@ -24,13 +34,44 @@ textarea{
   border-radius: 5px;
   margin-bottom: .15em;  
 }
+/* classes styling */
+.App {
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+}
 .btn-submit{
   align-self:flex-end;
   padding: .5em 1.5em;
   background-color: #4072DD;
   font-size:.65rem;
   color: white;
-  text-transform: capitalize;
   border-radius: 2px;
   border: none;
+}
+
+.response-card{
+  margin-top: 1em;
+  min-width: 350px;
+  max-width: 40%;
+  padding:.5em;
+  background-color: lightgrey;
+  display:grid;
+  grid-template-areas: 
+        "prompt-heading prompt-text"
+        "response-heading response-text";
+        grid-template-columns: 100px 200px;
+}
+
+.response-card-prompt-heading{
+  grid-area: prompt-heading ;
+}
+.response-card-prompt-paragraph{
+  grid-area: prompt-text;
+}
+.response-card-response-heading{
+  grid-area: response-heading;
+}
+.response-card-response-paragraph{
+  grid-area: response-text;
 }
