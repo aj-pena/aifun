@@ -18,7 +18,7 @@ function App() {
     // console.log(cardData)
 
     // state to handle the array of cards that is created from the data passed by App
-    const [ cardsArray, setCardsArray ] = React.useState( [cardData] )
+    const [ cardsArray, setCardsArray ] = React.useState( [])
       // TODO: erase console.log
       console.log('cardsArray:')
       console.log(cardsArray)
