@@ -1,43 +1,90 @@
-# <aifun>
+## <aifun>
+
+## Table of Contents
+
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Credits](#credits)
+  - [GitHub](#github)
+  - [Features](#features)
 
 ## Description
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
-## Table of Contents (Optional)
-If your README is long, add a table of contents to make it easy for users to find what they need.
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
+
+This application allows the user to explore advances in AI capabilities of processing test, by submitting a prompt to the openAI API and receiving responses that are displayed in a list of cards.
+
+1. This web application will allow users to enter a prompt to the openAI API 
+2. Once the prompt is submitted, the application will display a response card with the openAI completion
+3. The newest completion will be displayed on top of previous responses
+4. The data will be stored in LocalStorage so that it will remain if the tab is refreshed
+
+The USER STORY goes as follow
+
+    AS A user
+    I WANT to explore the AI capabilities to manipulate text while having fun 
+    SO THAT I can stay up to date on advances for automating text processing.  
+
 
 ## Installation
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+
+No installation is needed. This application runs in a live webpage.
+
 ## Usage
-Provide instructions and examples for use. Include screenshots as needed.
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+
+To use this application, go to the deployed webpage by followig this link: [Visit the deployed page](https://andres-aifun.netlify.app/)
+
+![Image of the Landing Page](./public/images/home.png "Landing Page")
+
+Once in the landing page, click on the text-box and enter a text with instructions for the program on what you want it to write, then click 'submit'. An example of a request would be "write me a poem about a chicken wearing shoes", or "explain life to a toddler". You can ask it anything! The more specific your request, with adjectives and examples, the better the response!
+
+![Image of a prompt being entered](./public/images/prompt.png "Prompt")
+
+
+After clicking 'submit', a response will be shown in cards below the text-box. 
+
+
+![Image of a series of categories to filter results from](./public/images/response.png "Response")
+
+
+
+The cards will be stacked from newest to oldest and will remain even if the page is refreshed.
+
+
+![Image of a series of cards with information about activities nearby](./public/images/oldResponses.png "Responses and data permanence")
+
 ## Credits
-List your collaborators, if any, with links to their GitHub profiles.
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-If you followed tutorials, include links to those here as well.
 
-## License
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
----
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
+Third-party assets:
+- [React](https://reactjs.org/)
+- [Google Fonts](https://fonts.google.com/)
+- [npm](https://www.npmjs.com/)
+- [dotenv-npm](https://www.npmjs.com/package/dotenv)
+- [Netlify](https://www.netlify.com/) 
+- [GitHub](https://github.com/) 
 
-## Badges
-![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
+
+
+Reference material:
+- [openAI](https://beta.openai.com/docs/guides/completion/introduction)
+- [w3schools](https://www.w3schools.com/)
+- [StackOverflow](https://stackoverflow.com/)
+- [Mozilla Developer Network](https://developer.mozilla.org/en-US/)
+
+
+## GitHub
+
+If you want to know more details, feel free to [visit the repo](https://github.com/aj-pena/aifun.git)
+
+
 ## Features
-If your project has a lot of features, list them here.
-## How to Contribute
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
 
-## Tests
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
+- React
+- Environment Variables
+- Google Fonts and Fontawesome fonts and icons
+- LocalStorage
+- openAI API
+- Dependencies:
+  - dotenv 10.0.0
+- Netlify
+- GitHub
+  
